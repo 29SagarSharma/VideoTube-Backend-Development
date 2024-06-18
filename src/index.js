@@ -1,12 +1,19 @@
-// require('dotenv').config({path: './env'})  //make code inconsistent becz its  require statemnt thenimport statemnt it can improved below.
+// require('dotenv').config({path: './env'})  //make code inconsistent becz its  require statemnt then import statemnt it can improved below.
 
 import dotenv from "dotenv";
-import mongoose from "mongoose";
 import connectDB from "./db/index.js";
 
 dotenv.config({
-    path: './env'
+    path: '../.env'
 })
+
+console.log('Loaded environment variables:', process.env);
+
+console.log(`MongoDB URI from env: ${process.env.MONGODB_URI}`);
+
+
+//console.log(process.env);
+
 
 connectDB();
 
