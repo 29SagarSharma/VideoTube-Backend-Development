@@ -7,15 +7,23 @@ dotenv.config({
     path: '../.env'
 })
 
-console.log('Loaded environment variables:', process.env);
+//console.log('Loaded environment  variables:', process.env);
 
-console.log(`MongoDB URI from env: ${process.env.MONGODB_URI}`);
+//console.log(`MongoDB URI from env: ${process.env.MONGODB_URI}`);
 
 
 //console.log(process.env);
 
 
-connectDB();
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000, () => {
+       console.log(`Server is running at port: ${process.env.PORT}`); 
+    })
+})
+.catch((err) => {
+    console.log("MONGO db connection faied!!!",err)
+})
 
 
 
