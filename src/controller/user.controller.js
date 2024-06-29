@@ -5,7 +5,7 @@ import {uploadOnCloudinary} from "../utlis/cloudinary.js"
 import { ApiResponse } from "../utlis/ApiResponse.js";
 
 
-const generateAccesAndRefreshToken = async(userId) {
+const generateAccesAndRefreshToken = async(userId)=> {
     try{
         const  user = await User.findById(userId)
         const accessToken = user.generateAccessToken()
@@ -134,6 +134,10 @@ const loginUser = asyncHandler(async (req,res) => {
             "User Logged In Successfully "
         )
     )
+})
+
+const logoutUser = asyncHandler(async(req, res) =>{
+    
 })
 
 
